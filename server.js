@@ -32,7 +32,8 @@ app.listen(PORT, () => {
     const user = usersArr.find(user => user.username === username && user.password === password);
     
     if (user) {
-    res.send(`Welcome ${username}`);
+    // res.redirect('/home');
+    res.render('home.ejs', { username: user.username });
     } else {
     res.status(401).send('Invalid credentials');
     }
